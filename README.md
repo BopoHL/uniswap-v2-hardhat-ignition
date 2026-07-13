@@ -136,6 +136,11 @@ prints all addresses, swap amounts, and final reserves.
 contracts/
   DemoToken.sol                         OpenZeppelin ERC-20
   uniswap/                              Canonical V2 source entrypoints
+vendor/uniswap-v2/
+  core/contracts/                       Factory, Pair, LP token, interfaces
+  periphery/contracts/                  Router02, WETH9, interfaces, libraries
+  lib/contracts/libraries/              TransferHelper
+  README.md                              Source map and provenance
 ignition/modules/
   UniswapV2Module.js                    Ignition deployment module
 scripts/
@@ -145,6 +150,30 @@ deployments/
 hardhat.config.js                       Compilers and network configuration
 .env.example                            Sepolia configuration template
 ```
+
+## Uniswap V2 source code in this repository
+
+The exact upstream Solidity files used by the pinned dependencies are committed
+under [`vendor/uniswap-v2`](vendor/uniswap-v2/README.md), so they can be reviewed
+directly on GitHub:
+
+- [`UniswapV2Factory.sol`](vendor/uniswap-v2/core/contracts/UniswapV2Factory.sol)
+  creates Pair contracts;
+- [`UniswapV2Pair.sol`](vendor/uniswap-v2/core/contracts/UniswapV2Pair.sol)
+  holds reserves, mints LP tokens, and performs swaps;
+- [`UniswapV2ERC20.sol`](vendor/uniswap-v2/core/contracts/UniswapV2ERC20.sol)
+  implements the UNI-V2 liquidity token;
+- [`UniswapV2Router02.sol`](vendor/uniswap-v2/periphery/contracts/UniswapV2Router02.sol)
+  exposes liquidity and trading functions;
+- [`WETH9.sol`](vendor/uniswap-v2/periphery/contracts/test/WETH9.sol)
+  wraps native ETH for ERC-20 pools;
+- [`UniswapV2Library.sol`](vendor/uniswap-v2/periphery/contracts/libraries/UniswapV2Library.sol)
+  calculates pair addresses and trade amounts.
+
+The snapshot is copied unchanged from `@uniswap/v2-core@1.0.1`,
+`@uniswap/v2-periphery@1.1.0-beta.0`, and `@uniswap/lib@1.1.1`. It stays outside
+the Hardhat `contracts/` source root to preserve the canonical bytecode and Pair
+init-code hash used by the deployed protocol.
 
 ## Why the Factory uses the official artifact
 
@@ -167,4 +196,5 @@ npm run deploy:localhost # deploy the Ignition module locally
 npm run pool:localhost   # create pool and execute local trades
 npm run deploy:sepolia   # deploy the Ignition module to Sepolia
 npm run pool:sepolia     # create pool and execute Sepolia trades
+npm run verify:vendor    # verify committed Uniswap sources match npm packages
 ```

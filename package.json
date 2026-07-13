@@ -12,7 +12,8 @@
     "deploy:sepolia": "hardhat ignition deploy ignition/modules/UniswapV2Module.js --network sepolia",
     "pool:sepolia": "hardhat run scripts/create-pool-and-trade.js --network sepolia",
     "node": "hardhat node",
-    "test": "hardhat run scripts/create-pool-and-trade.js"
+    "test": "hardhat run scripts/create-pool-and-trade.js",
+    "verify:vendor": "node scripts/verify-vendored-source.js"
   },
   "dependencies": {
     "@openzeppelin/contracts": "5.6.1",
