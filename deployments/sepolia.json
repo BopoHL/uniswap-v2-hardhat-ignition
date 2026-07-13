@@ -1,0 +1,41 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "deployer": "0x11079EBa777D913d77b944c40fC4c79504F40292",
+  "contracts": {
+    "demoToken": "0xE5802D12Ab1A7D4768361cc0778E86Ba84531E8c",
+    "weth9": "0x72A3aF7f5719eBF341c4Ee0c5B2D5087b184403E",
+    "uniswapV2Factory": "0x07D3e3DCc4890499a392D6EeD2A5301f9d9ce9d2",
+    "uniswapV2Router02": "0xb4410E70ce835F3f091b4A3b7d323DC76F20962e",
+    "ethDttPair": "0x52dA4d633CC611469fd345A854B7DA741FCf38E4"
+  },
+  "initialLiquidity": {
+    "eth": "0.01",
+    "dtt": "10000"
+  },
+  "trades": [
+    {
+      "input": "0.0001 ETH",
+      "output": "98.715803439706129885 DTT",
+      "transactionHash": "0x8e7af0ff580a55f7afde8885436824803b66e041d7868b925b17507d391a0855"
+    },
+    {
+      "input": "20 DTT",
+      "output": "0.000020299309441048 ETH",
+      "transactionHash": "0xb59c65142413d25f46bfcf2819cf9759dcbe814978513687d5aeb90835dbe697"
+    },
+    {
+      "input": "0.00005 ETH",
+      "output": "48.825069571890338122 DTT",
+      "transactionHash": "0xee7d40263067b52248e0eb8b3fa1ce119695e54e9603c2601d7e24ea2c65369a"
+    }
+  ],
+  "transactions": {
+    "deployDemoToken": "0x098fc0421e8234d7110887cac00397b2c4eee964c740598a846bed6c09cba2da",
+    "deployWeth9": "0x71429b2b0907fa9b17a462d273fc65ba51e9d283bc7db85db834ef80f90d5749",
+    "deployFactory": "0x99d68a1a638013043e7355fbf0dcda5b8a513e411a7644f11136178ec05c2d8f",
+    "deployRouter": "0x24927c7f48f1e8d9b112c4ef90705a10dce23ce4e75b2b235621e089d00cedc1",
+    "addLiquidity": "0xb3bccd28c7afb3338b205e4f59c742ba94d4bcc3730e4647f59b285cf7052377"
+  }
+}
+
