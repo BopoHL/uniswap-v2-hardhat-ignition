@@ -13,6 +13,9 @@
     "pool:sepolia": "hardhat run scripts/create-pool-and-trade.js --network sepolia",
     "node": "hardhat node",
     "test": "hardhat run scripts/create-pool-and-trade.js",
+    "experiment:renamed": "hardhat run scripts/experiment-renamed-contracts.js",
+    "demo:custom": "hardhat run scripts/demo-my-uniswap-v2.js",
+    "deploy:custom:localhost": "hardhat ignition deploy ignition/modules/MyUniswapV2Module.js --network localhost --reset",
     "verify:vendor": "node scripts/verify-vendored-source.js"
   },
   "dependencies": {
